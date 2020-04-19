@@ -1,0 +1,15 @@
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.ava {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: darkgoldenrod;
+}
+
+.name {
+    font-size: medium;
+}
