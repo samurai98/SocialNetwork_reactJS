@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import Friend from "./Firend";
+import PropTypes from "prop-types";
 
 const Navbar = (props) => {
     let allFriends = props.state.friends.map(el => <Friend name={el.name} />);
@@ -27,6 +28,10 @@ const Navbar = (props) => {
             {allFriends}
         </div>
     </nav>
+}
+
+Navbar.propTypes = {
+    state: PropTypes.object
 }
 
 export default Navbar;

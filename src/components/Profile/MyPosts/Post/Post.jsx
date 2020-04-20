@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Post.module.css';
+import PropTypes from "prop-types";
 
 const Post = (props) => {
     return (
@@ -13,5 +14,9 @@ const Post = (props) => {
             </div>
         )
 }
+
+Post.propTypes = {
+    message: PropTypes.string
+};
 
 export default Post;

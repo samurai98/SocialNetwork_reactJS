@@ -1,10 +1,11 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
+import PropTypes from "prop-types";
 
 const MyPosts = (props) => {
 
-    let postsElements = props.allPosts.map(el =>  <Post message={el.message} likesCount={el.likesCount}/>);
+    let postsElements = props.allPosts.map(el => <Post message={el.message} likesCount={el.likesCount}/>);
 
     return <div className={s.postsBlock}>
         <h3>My post</h3>
@@ -21,6 +22,10 @@ const MyPosts = (props) => {
             {postsElements}
         </div>
     </div>
+}
+
+MyPosts.propTypes = {
+    allPosts: PropTypes.array
 }
 
 export default MyPosts;

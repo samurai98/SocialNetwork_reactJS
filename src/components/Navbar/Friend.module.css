@@ -1,9 +1,9 @@
 .content {
     display: flex;
-    flex-direction: column;
 }
 
 .ava {
+    margin: 5px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
