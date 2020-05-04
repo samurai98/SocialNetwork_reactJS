@@ -5,16 +5,28 @@ import PropTypes from "prop-types";
 
 const MyPosts = (props) => {
 
-    let postsElements = props.allPosts.map(el => <Post message={el.message} likesCount={el.likesCount}/>);
+    let postsElements = props.posts.map(el => <Post message={el.message} likesCount={el.likesCount}/>);
+    let newPostElement = React.createRef();
+
+    let addPost = () => {
+        props.addPost();
+    }
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
+    }
 
     return <div className={s.postsBlock}>
         <h3>My post</h3>
         <div>
             <div>
-                <textarea></textarea>
+                <textarea ref={newPostElement}
+                          onChange={onPostChange}
+                          value={props.newPostText}/>
             </div>
             <div>
-                <button>Add post</button>
+                <button onClick={addPost}>Add post</button>
             </div>
         </div>
 
