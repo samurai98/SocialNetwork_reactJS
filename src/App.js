@@ -9,6 +9,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import PropTypes from "prop-types"
+import store from "./redux/state";
 
 const App = (props) => {
 
