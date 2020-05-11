@@ -3,7 +3,7 @@ import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import PropTypes from "prop-types"
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
     let dialogsElements = props.state.dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
@@ -12,12 +12,12 @@ const Dialogs = (props) => {
 
     let addMessage = () => {
         props.dispatch(addMessageActionCreator());
-    }
+    };
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
         props.dispatch(updateNewMessageTextActionCreator(text));
-    }
+    };
 
     return (
         <div className={s.dialogs}>
@@ -38,7 +38,7 @@ const Dialogs = (props) => {
             </div>
         </div>
     );
-}
+};
 
 Dialogs.propTypes = {
     state: PropTypes.shape({
