@@ -11,7 +11,7 @@ const Dialogs = (props) => {
 
     let dialogsElements = state.dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
     let messagesElements = state.messages.map(el => <Message message={el.message}/>);
-    let newMessageElement = state;
+    let newMessageElement = state.newMessageText;
 
     let addMessage = () => {
         props.sendMessage();
@@ -31,7 +31,7 @@ const Dialogs = (props) => {
                 <div>{messagesElements}</div>
                 <div>
                     <div><textarea onChange={onMessageChange}
-                                   value={state.newMessageText}
+                                   value={newMessageElement}
                                    placeholder={'Write a message...'}/></div>
                     <div>
                         <button onClick={addMessage}>Send</button>
