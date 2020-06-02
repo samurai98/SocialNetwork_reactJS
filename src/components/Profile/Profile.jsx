@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 export const Profile = () => {
-
     return <div className={s.content}>
         <ProfileInfo/>
         <MyPostsContainer />
