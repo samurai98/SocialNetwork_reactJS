@@ -6,11 +6,10 @@ import PropTypes from "prop-types"
 
 
 const Dialogs = (props) => {
-
     let state = props.dialogsPage;
 
-    let dialogsElements = state.dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
-    let messagesElements = state.messages.map(el => <Message message={el.message}/>);
+    let dialogsElements = state.dialogs.map(el => <DialogItem key={el.id} name={el.name} id={el.id}/>);
+    let messagesElements = state.messages.map(el => <Message key={el.id} message={el.message}/>);
     let newMessageElement = state.newMessageText;
 
     let addMessage = () => {
