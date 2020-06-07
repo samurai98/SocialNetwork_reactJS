@@ -4,9 +4,9 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import PropTypes from "prop-types";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-export const Profile = () => {
+export const Profile = (props) => {
     return <div className={s.content}>
-        <ProfileInfo/>
+        <ProfileInfo profile={props.profile}/>
         <MyPostsContainer />
     </div>
 };
