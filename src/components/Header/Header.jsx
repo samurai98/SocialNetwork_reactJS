@@ -8,7 +8,8 @@ const Header = (props) => {
              src='https://edmjobs.com/wp-content/uploads/job-manager-uploads/company_logo/2016/03/without-background.png?w=640'/>
 
         <div className={s.loginBlock}>
-            {props.isAuth ? props.login
+            {props.isAuth
+                ? <div>{props.login} <button onClick={props.logout}>Log out</button></div>
                 : <NavLink to={'/login'}>Login</NavLink>}
         </div>
     </header>
