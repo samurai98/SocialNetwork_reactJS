@@ -26,7 +26,6 @@ export const initializedApp = () => (dispatch) => {
         .then(() => {
             dispatch(initializedSuccess());
         });
-
 };
 
 
