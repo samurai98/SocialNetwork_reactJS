@@ -8,7 +8,9 @@ export const Profile = (props) => {
     return <div className={s.content}>
         <ProfileInfo profile={props.profile}
                      status={props.status}
+                     isOwner={props.isOwner}
                      updateStatus={props.updateStatus}
+                     savePhoto={props.savePhoto}
         />
         <MyPostsContainer/>
     </div>
