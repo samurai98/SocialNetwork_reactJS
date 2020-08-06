@@ -11,6 +11,7 @@ export const Profile = (props) => {
                      isOwner={props.isOwner}
                      updateStatus={props.updateStatus}
                      savePhoto={props.savePhoto}
+                     saveProfile={props.saveProfile}
         />
         <MyPostsContainer/>
     </div>
