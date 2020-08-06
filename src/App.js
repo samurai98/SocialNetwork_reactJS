@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {HashRouter, Route, withRouter} from "react-router-dom";
+import {HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -33,18 +33,23 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Navbar state={this.props.state.sidebar}/>
                 <div className={"app-wrapper-content"}>
-                    <React.Suspense fallback={<Preloader />}>
-                    <Route path='/profile/:userId?' render={() =>
-                        <ProfileContainer/>}/>
-                    <Route path='/dialogs' render={() =>
-                        <DialogsContainer/>}/>
-                    <Route path='/users' render={() =>
-                        <UsersContainer/>}/>
-                    <Route path='/login' render={() =>
-                        <LoginPage/>}/>
-                    <Route path='/news' render={() => <News/>}/>
-                    <Route path='/music' render={() => <Music/>}/>
-                    <Route path='/settings' render={() => <Settings/>}/>
+                    <React.Suspense fallback={<Preloader/>}>
+                        <Switch>
+                            <Route exact path='/'
+                                   render={() => <Redirect to={'/profile'}/>}/>
+                            <Route path='/profile/:userId?' render={() =>
+                                <ProfileContainer/>}/>
+                            <Route path='/dialogs' render={() =>
+                                <DialogsContainer/>}/>
+                            <Route path='/users' render={() =>
+                                <UsersContainer/>}/>
+                            <Route path='/login' render={() =>
+                                <LoginPage/>}/>
+                            <Route path='/news' render={() => <News/>}/>
+                            <Route path='/music' render={() => <Music/>}/>
+                            <Route path='/settings' render={() => <Settings/>}/>
+                            <Route path='*' render={() => <div>404 NOT FOUND</div>}/>
+                        </Switch>
                     </React.Suspense>
                 </div>
             </div>
