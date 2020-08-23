@@ -31,27 +31,32 @@ class App extends React.Component {
         return (
             <div className='app-wrapper'>
                 <HeaderContainer/>
-                <Navbar state={this.props.state.sidebar}/>
-                <div className={"app-wrapper-content"}>
-                    <React.Suspense fallback={<Preloader/>}>
-                        <Switch>
-                            <Route exact path='/'
-                                   render={() => <Redirect to={'/profile'}/>}/>
-                            <Route path='/profile/:userId?' render={() =>
-                                <ProfileContainer/>}/>
-                            <Route path='/dialogs' render={() =>
-                                <DialogsContainer/>}/>
-                            <Route path='/users' render={() =>
-                                <UsersContainer/>}/>
-                            <Route path='/login' render={() =>
-                                <LoginPage/>}/>
-                            <Route path='/news' render={() => <News/>}/>
-                            <Route path='/music' render={() => <Music/>}/>
-                            <Route path='/settings' render={() => <Settings/>}/>
-                            <Route path='*' render={() => <div>404 NOT FOUND</div>}/>
-                        </Switch>
-                    </React.Suspense>
+
+                <div className={"app-wrapper-main"}>
+                    <Navbar state={this.props.state.sidebar}/>
+                    <div className={"app-wrapper-content"}>
+                        <React.Suspense fallback={<Preloader/>}>
+                            <Switch>
+                                <Route exact path='/'
+                                       render={() => <Redirect to={'/profile'}/>}/>
+                                <Route path='/profile/:userId?' render={() =>
+                                    <ProfileContainer/>}/>
+                                <Route path='/dialogs' render={() =>
+                                    <DialogsContainer/>}/>
+                                <Route path='/users' render={() =>
+                                    <UsersContainer/>}/>
+                                <Route path='/login' render={() =>
+                                    <LoginPage/>}/>
+                                <Route path='/news' render={() => <News/>}/>
+                                <Route path='/music' render={() => <Music/>}/>
+                                <Route path='/settings' render={() => <Settings/>}/>
+                                <Route path='*' render={() => <div>404 NOT FOUND</div>}/>
+                            </Switch>
+                        </React.Suspense>
+                    </div>
                 </div>
+
+
             </div>
         );
     }

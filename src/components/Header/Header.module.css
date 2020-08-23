@@ -1,14 +1,23 @@
 .header {
-    grid-area: h;
-    background-color: blueviolet;
+    grid-area: header;
+    background-color: #4a76a8;
+    display: grid;
+    align-items: center;
+    grid-template: 1fr / 1fr minmax(auto, 165px) minmax(auto, 795px) 1fr;
 }
 
-.header img {
-    width: 60px;
+.logo {
+    grid-column: 2 / 3;
+}
+
+.logo img {
+    width: 42px;
 }
 
 .loginBlock {
-    float: right;
+    display: grid;
+    justify-items: end;
+    grid-column: 3 / 4;
 }
 
 .loginBlock a {
