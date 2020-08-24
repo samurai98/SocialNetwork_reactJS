@@ -5,14 +5,22 @@ import {NavLink} from "react-router-dom";
 
 let User = ({user, followingInProgress, unfollow, follow}) => {
     return (
-        <div>
+        <div className={styles.user}>
                 <span>
                     <div>
                         <NavLink to={'/profile/' + user.id}>
-                           <img src={user.photos.small !== null ? user.photos.small : userPhoto} alt="ava"
+                           <img src={user.photos.small !== null
+                               ? user.photos.small : userPhoto} alt="ava"
                                 className={styles.userPhoto}/>
                         </NavLink>
                         </div>
+                </span>
+            <span>
+                <span>
+                    <NavLink to={'/profile/' + user.id}>
+                        <div>{user.name}</div>
+                    </NavLink>
+                    <div className={styles.status}>{user.status || <span className={styles.noStatus}>no status</span>}</div>
                     <div>
                         {user.followed
                             ? <button disabled={followingInProgress
@@ -27,17 +35,8 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                                       }}>Follow</button>}
 
                     </div>
-                </span>
-            <span>
-                    <span>
-                        <div>{user.name}</div>
-                        <div>{user.status}</div>
-                    </span>
-                    <span>
-                        <div>{"u.location.country"}</div>
-                        <div>{"u.location.city"}</div>
-                    </span>
-                </span>
+                 </span>
+            </span>
         </div>
     )
 };

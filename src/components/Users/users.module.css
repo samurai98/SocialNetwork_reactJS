@@ -1,5 +1,25 @@
+.users {
+    padding: 0 20px;
+}
+
+.user {
+    display: grid;
+    grid-template: 105px / minmax(90px, auto) 1fr;
+    align-items: center;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.7);
+}
+
+.status {
+    overflow:hidden;
+    max-width: 500px;
+}
+
+.noStatus {
+    color: rgba(191, 143, 96, 0.67);
+}
+
 .userPhoto {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
 }

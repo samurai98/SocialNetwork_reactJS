@@ -10,9 +10,14 @@
 }
 
 .item a {
-    display: block;
     color: #2a5885;
     text-decoration: none;
+    display: flex;
+}
+
+.item a img {
+    width: 17px;
+    padding-right: 12px;
 }
 
 .item:hover {
