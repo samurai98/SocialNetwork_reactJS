@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./Paginator.module.css";
+import React from 'react';
+import styles from './Paginator.module.css';
 import cn from 'classnames';
 
 let Paginator = ({totalItemsCount, pageSize, currentPage, portionNumber, setPortionNumber, onPageChanged, portionSize}) => {
@@ -15,23 +15,25 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, portionNumber, setPort
 
     return <div className={styles.paginator}>
         {portionNumber > 1 &&
-        <button onClick={() => {
+        <button className={styles.leftButton} onClick={() => {
             setPortionNumber(portionNumber - 1)
-        }}>left</button>}
-        {pages
-            .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
-            .map(p => {
-                return <span
-                    className={cn({[styles.selectPage]: currentPage === p}, styles.allPage, styles.pageNumber)}
-                    onClick={() => {
-                        onPageChanged(p)
-                    }}
-                >{p}</span>
-            })}
+        }}>&lt;&lt;</button>}
+        <div className={styles.allPages}>
+            {pages
+                .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+                .map(p => {
+                    return <span
+                        className={cn({[styles.selectPage]: currentPage === p}, styles.pageNumber)}
+                        onClick={() => {
+                            onPageChanged(p)
+                        }}
+                    >{p}</span>
+                })}
+        </div>
         {portionCount > portionNumber &&
-        <button onClick={() => {
+        <button className={styles.rightButton} onClick={() => {
             setPortionNumber(portionNumber + 1)
-        }}>right</button>}
+        }}>>></button>}
     </div>
 };
 
