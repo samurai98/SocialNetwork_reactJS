@@ -3,13 +3,15 @@ import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
 import styles from "./users.module.css";
 
-let Users = ({currentPage, totalUsersCount, onPageChanged, pageSize, users, ...props}) => {
+let Users = ({currentPage, portionNumber, setPortionNumber, totalUsersCount, onPageChanged, pageSize, users, ...props}) => {
     return <div>
         <Paginator currentPage={currentPage}
                    onPageChanged={onPageChanged}
                    totalItemsCount={totalUsersCount}
                    pageSize={pageSize}
-                   portionSize={15}/>
+                   portionSize={15}
+                   portionNumber={portionNumber}
+                   setPortionNumber={setPortionNumber}/>
         <div className={styles.users}>
             {users.map(u => <User key={u.id}
                                   user={u}
@@ -22,7 +24,9 @@ let Users = ({currentPage, totalUsersCount, onPageChanged, pageSize, users, ...p
                    onPageChanged={onPageChanged}
                    totalItemsCount={totalUsersCount}
                    pageSize={pageSize}
-                   portionSize={15}/>
+                   portionSize={15}
+                   portionNumber={portionNumber}
+                   setPortionNumber={setPortionNumber}/>
     </div>
 };
 

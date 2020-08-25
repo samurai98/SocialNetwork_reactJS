@@ -5,6 +5,11 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+
+
+const SET_PORTION_NUMBER = 'SET_PORTION_NUMBER';
+
+
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
@@ -14,6 +19,7 @@ let initialState = {
     pageSize: 20,
     totalUsersCount: 0,
     currentPage: 1,
+    portionNumber: 1,
     isFetching: true,
     followingInProgress: []
 };
@@ -38,6 +44,9 @@ const usersReducer = (state = initialState, action) => {
         case SET_CURRENT_PAGE: {
             return {...state, currentPage: action.currentPage}
         }
+        case SET_PORTION_NUMBER: {
+            return {...state, portionNumber: action.portionNumber}
+        }
         case SET_TOTAL_USERS_COUNT: {
             return {...state, totalUsersCount: action.count}
         }
@@ -61,6 +70,11 @@ export const followSuccess = (userId) => ({type: FOLLOW, userId});
 export const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId});
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+
+
+export const setPortionNumber = (portionNumber) => ({type: SET_PORTION_NUMBER, portionNumber});
+
+
 export const setUsersTotalCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleFollowingProgress = (isFetching, userId) => ({
@@ -73,10 +87,13 @@ export const getUsers = (page, pageSize) => {
     return async (dispatch) => {
         dispatch(toggleIsFetching(true));
 
-        let data = await usersAPI.getUsers(page, pageSize);
+        let dataForPageNumber = await usersAPI.getUsers(page, 1);
+        let pageNumber = Math.ceil(dataForPageNumber.totalCount/pageSize) - page + 1;
+        let data = await usersAPI.getUsers(pageNumber, pageSize);
+
         dispatch(toggleIsFetching(false));
         dispatch(setCurrentPage(page));
-        dispatch(setUsers(data.items));
+        dispatch(setUsers(data.items.reverse()));
         dispatch(setUsersTotalCount(data.totalCount));
     }
 };
