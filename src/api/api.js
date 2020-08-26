@@ -40,7 +40,7 @@ export const profileAPI = {
     },
     savePhoto(photoFile) {
         const formData = new FormData();
-        formData.append('image', photoFile)
+        formData.append('image', photoFile);
         return instance.put('profile/photo', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -58,6 +58,9 @@ export const authAPI = {
     },
     login(email, password, rememberMe = false, captcha = null) {
         return instance.post(`auth/login`, {email, password, rememberMe, captcha});
+    },
+    getAuthUserPhoto(userName) {
+        return instance.get(`users?term=${userName}`).then(response => response.data.items[0].photos.small);
     },
     logout() {
         return instance.post(`auth/logout`);

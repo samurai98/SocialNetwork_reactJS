@@ -2,6 +2,7 @@ import {authAPI, securityAPI} from "../api/api";
 import {stopSubmit} from 'redux-form';
 
 const SET_USER_DATA = 'samurai-network/auth/SET_USER_DATA';
+const SET_USER_PHOTO = 'samurai-network/auth/SET_USER_PHOTO';
 const GET_CAPTCHA_URL_SUCCESS = 'samurai-network/auth/GET_CAPTCHA_URL_SUCCESS';
 
 let initialState = {
@@ -9,7 +10,8 @@ let initialState = {
     email: null,
     login: null,
     isAuth: false,
-    captchaUrl: null
+    captchaUrl: null,
+    userPhoto: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -20,16 +22,24 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 ...action.payload
             };
+        case SET_USER_PHOTO:
+            return {
+                ...state,
+                userPhoto: action.photo
+            };
         default:
             return state;
     }
 };
 
-export const setAuthUserData = (userId, email, login, isAuth) =>
-    ({type: SET_USER_DATA, payload: {userId, email, login, isAuth}});
+export const setAuthUserData = (userId, email, login, isAuth, userPhoto) =>
+    ({type: SET_USER_DATA, payload: {userId, email, login, isAuth, userPhoto}});
 
 export const getCaptchaUrlSuccess = (captchaUrl) =>
     ({type: GET_CAPTCHA_URL_SUCCESS, payload: {captchaUrl}});
+
+export const setUserPhoto = (photo) =>
+    ({type: SET_USER_PHOTO, photo: photo});
 
 
 export const getAuthUserData = () => async (dispatch) => {
@@ -53,6 +63,11 @@ export const login = (email, password, rememberMe, captcha) => async (dispatch) 
     }
 };
 
+export const getAuthUserPhoto = (login) => async (dispatch) => {
+    const photo = await authAPI.getAuthUserPhoto(login);
+    dispatch(setUserPhoto(photo));
+};
+
 export const getCaptchaUrl = () => async (dispatch) => {
     const response = await securityAPI.getCaptchaUrl();
     const captchaUrl = response.data.url;
@@ -62,7 +77,7 @@ export const getCaptchaUrl = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
     let response = await authAPI.logout();
     if (response.data.resultCode === 0) {
-        dispatch(setAuthUserData(null, null, null, false));
+        dispatch(setAuthUserData(null, null, null, false, null));
     }
 };
 

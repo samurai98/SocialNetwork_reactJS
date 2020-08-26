@@ -6,7 +6,7 @@ import logo from './../../assets/images/logo.png';
 const Header = (props) => {
     return <header className={s.header}>
         <div className={s.logo}>
-            <NavLink to="/profile" activeClassName={s.activeLink}>
+            <NavLink to='/profile' activeClassName={s.activeLink}>
                 <img alt='logo'
                      src={logo}/>
             </NavLink>
@@ -14,8 +14,16 @@ const Header = (props) => {
 
         <div className={s.loginBlock}>
             {props.isAuth
-                ? <div>{props.login}
-                    <button onClick={props.logout}>Log out</button>
+                ? <div className={s.userInfo}>
+                    <span>
+                        <NavLink to='/profile' activeClassName={s.activeLink}>
+                            {props.login}
+                        </NavLink>
+                    </span>
+                    <NavLink to='/profile' activeClassName={s.activeLink}>
+                        <img src={props.photo} alt="ava"/>
+                    </NavLink>
+                    <button onClick={props.logout}>Logout</button>
                 </div>
                 : <NavLink to={'/login'}>Login</NavLink>}
         </div>

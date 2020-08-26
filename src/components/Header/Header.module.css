@@ -8,6 +8,7 @@
 
 .logo {
     grid-column: 2 / 3;
+    height: 42px;
 }
 
 .logo img {
@@ -22,4 +23,40 @@
 
 .loginBlock a {
     color: white;
+}
+
+.userInfo {
+    display: grid;
+    grid-template:  1fr / 1fr 35px 80px;
+    align-items: center;
+    justify-items: flex-end;
+}
+
+.userInfo span {
+    padding-right: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.userInfo a {
+    text-decoration: none;
+    display: inline;
+}
+
+.userInfo img {
+    width: 30px;
+    border-radius: 50%;
+}
+
+.userInfo button {
+    width: 55px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #f0f2f5;
+    border: 1px solid #d3d9de;
+    background-color: #5181b8;
+}
+
+.userInfo button:hover {
+    transform: scale(1.1);
 }
