@@ -9,6 +9,27 @@
     border-bottom: 1px solid rgba(100, 100, 100, 0.7);
 }
 
+.userPhoto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.userInfo {
+    margin-left: 15px;
+}
+
+.userName a {
+    font-size: 18px;
+    color: #2a5885;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.userName a:hover {
+    text-decoration: underline;
+}
+
 .status {
     overflow:hidden;
     max-width: 500px;
@@ -19,8 +40,25 @@
     color: rgba(191, 143, 96, 0.67);
 }
 
-.userPhoto {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+.follow button {
+    width: 70px;
+    height: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #5181b8;
+    border: 0;
+    outline: none;
+    margin-top: 5px;
 }
+
+.follow button:hover {
+    background-color: rgba(103, 162, 232, 0.56);
+}
+
+.follow button:disabled {
+    cursor: progress;
+    background-color: rgba(103, 162, 232, 0.56);
+}
+

@@ -55,6 +55,7 @@
     color: #f0f2f5;
     border: 1px solid #d3d9de;
     background-color: #5181b8;
+    outline: none;
 }
 
 .userInfo button:hover {

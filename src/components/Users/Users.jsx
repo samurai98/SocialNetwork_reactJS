@@ -17,7 +17,8 @@ let Users = ({currentPage, portionNumber, setPortionNumber, totalUsersCount, onP
                                   user={u}
                                   followingInProgress={props.followingInProgress}
                                   follow={props.follow}
-                                  unfollow={props.unfollow}/>)
+                                  unfollow={props.unfollow}
+                                  isAuth={props.isAuth}/>)
             }
         </div>
         <Paginator currentPage={currentPage}
