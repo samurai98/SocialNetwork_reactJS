@@ -1,3 +1,14 @@
+.input {
+    margin-bottom: 15px;
+    width: 260px;
+    height: 30px;
+    padding: 6px 12px 8px;
+    border-radius: 5px;
+    border: 1px solid #d3d9de;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
 .formControl.error input,
 .formControl.error textarea {
     border: 2px solid red;
@@ -8,6 +19,9 @@
 }
 
 .formSummaryError {
-    border: 2px solid red;
-    padding: 5px;
+    padding: 5px 18px;
+    margin: 20px 0 30px 0;
+    border: 0;
+    border-radius: 4px;
+    background-color: #ffd6cc;
 }

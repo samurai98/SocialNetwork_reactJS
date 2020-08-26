@@ -1,0 +1,26 @@
+.login {
+    display: grid;
+    grid-template: 0.2fr 0.8fr / 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.button {
+    width: 105px;
+    height: 35px;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 5px;
+    padding: 7px 16px 8px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #5181b8;
+    border: 0;
+    display: block;
+    outline: none;
+    margin: 10px auto;
+}
+
+.button:hover {
+    background-color: rgba(103, 162, 232, 0.56);
+}
