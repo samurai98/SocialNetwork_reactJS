@@ -6,7 +6,8 @@ import {getAuthUserPhoto, logout} from "../../redux/auth-reducer";
 class HeaderContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getAuthUserPhoto(this.props.login);
+        if(this.props.isAuth)
+            this.props.getAuthUserPhoto(this.props.login);
     }
 
     render() {
