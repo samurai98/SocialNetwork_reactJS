@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import ProfileStatus from "./ProfileStatus";
 import userPhoto from '../../../assets/images/user.png';
+import add from '../../../assets/images/icons/add.svg';
 import ProfileDataForm from "./ProfileDataForm";
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
@@ -26,39 +27,43 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
             });
     };
 
-    return <div className={s.content}>
-        <div className={s.picture}>
-            <img alt={'ava'} src='https://widewp.ru/images/nature/1904.jpg'/>
-        </div>
-        <div className={s.descriptionBlock}>
+    return <div className={s.profileInfo}>
+        <div className={s.photoBlock}>
             <img src={profile.photos.large || userPhoto} alt='ava' className={s.mainPhoto}/>
-            {isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
-            <ProfileStatusWithHooks status={status}
-                                    updateStatus={updateStatus}/>
+            {isOwner &&
+            <div className={s.newPhoto}>
+                <input type='file' id='input'
+                       onChange={onMainPhotoSelected}/>
+                <label htmlFor='input'>
+                        <div className={s.addPhoto}>
+                            <img src={add} alt='add file' width='25'/>
+                            Add new photo
+                        </div>
+                </label>
+            </div>
+            }
         </div>
-
-        {editMode
-            ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
-            : <ProfileData profile={profile}
-                           goToEditMode={() => setEditMode(true)}
-                           isOwner={isOwner}/>}
-
+        <div className={s.mainInfo}>
+                <span className={s.fullName}>
+            {profile.fullName}
+                </span>
+            <ProfileStatus isOwner={isOwner}
+                           status={status}
+                           updateStatus={updateStatus}/>
+            {editMode
+                ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
+                : <ProfileData profile={profile}
+                               goToEditMode={() => setEditMode(true)}
+                               isOwner={isOwner}/>}
+        </div>
     </div>
 };
 
 const ProfileData = ({profile, isOwner, goToEditMode}) => {
 
-    return <div>
-        {isOwner && <div>
-            <button onClick={goToEditMode}>edit</button>
-        </div>}
-
+    return <div className={s.profileData}>
         <div>
-            <b>FullName</b>: {profile.fullName}
-        </div>
-
-        <div>
-            <b>Loking for a job:</b> {profile.lookingForAJob ? 'Yes' : 'No'}
+            <b>Looking for a job:</b> {profile.lookingForAJob ? 'Yes' : 'No'}
         </div>
         {profile.lookingForAJobDescription &&
         <div>
@@ -70,14 +75,20 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
         </div>
         <div>
             <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
-            return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+            if (profile.contacts[key])
+                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
         })}
         </div>
+        {isOwner && <div>
+            <button className={s.editButton} onClick={goToEditMode}>edit</button>
+        </div>}
     </div>
 };
 
 const Contact = ({contactTitle, contactValue}) => {
-    return <div className={s.contact}><b>{contactTitle}</b>: {contactValue}</div>
+    return <div className={s.contact}><b>{contactTitle}</b>:
+        <a rel='noopener noreferrer' target='_blank' href={contactValue}>{contactValue}</a>
+    </div>
 };
 
 export default ProfileInfo;

@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from '../../redux/profile-reducer';
 import {withRouter} from 'react-router-dom';
 import {compose} from "redux";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 class ProfileContainer extends React.Component {
 

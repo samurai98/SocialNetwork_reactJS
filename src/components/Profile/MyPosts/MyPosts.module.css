@@ -1,5 +1,5 @@
 .postsBlock {
-    padding: 10px;
+    grid-column: 2 / 3;
 }
 
 .posts {

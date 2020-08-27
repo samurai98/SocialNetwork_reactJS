@@ -5,7 +5,7 @@ import s from './ProfileInfo.module.css';
 import style from '../../common/FormsControls/FormsControls.module.css';
 
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
-    return <form onSubmit={handleSubmit}>
+    return <form className={s.profileData} onSubmit={handleSubmit}>
         {error && <div className={style.formSummaryError}>
             {error}
         </div>}
@@ -18,7 +18,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
         </div>
 
         <div>
-            <b>Loking for a job:</b> {createField('', 'lookingForAJob',
+            <b>Looking for a job:</b> {createField('', 'lookingForAJob',
             [], Input, {type: 'checkbox'})}
         </div>
         {profile.lookingForAJobDescription &&

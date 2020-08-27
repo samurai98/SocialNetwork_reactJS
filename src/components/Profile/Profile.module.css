@@ -1,1 +1,5 @@
-.content {}
+.content {
+    display: grid;
+    grid-template: 0.5fr 0.5fr / 0.3fr 0.7fr;
+}
+
