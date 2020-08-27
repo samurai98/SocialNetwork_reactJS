@@ -65,6 +65,10 @@
 .status span {
     justify-items: center;
     padding: 5px;
+    margin-top: 20px;
+
+    overflow:hidden;
+    max-width: 500px;
 }
 
 .status span:hover {
@@ -96,4 +100,14 @@
 
 .contact, .contact a {
     padding-left: 10px;
+}
+
+.contact a {
+    color: #2a5885;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
 }
