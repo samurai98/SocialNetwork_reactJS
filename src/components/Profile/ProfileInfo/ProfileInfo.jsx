@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
@@ -30,18 +30,17 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
     return <div className={s.profileInfo}>
         <div className={s.photoBlock}>
             <img src={profile.photos.large || userPhoto} alt='ava' className={s.mainPhoto}/>
-            {isOwner &&
-            <div className={s.newPhoto}>
+            {isOwner
+            && <div className={s.newPhoto}>
                 <input type='file' id='input'
                        onChange={onMainPhotoSelected}/>
                 <label htmlFor='input'>
-                        <div className={s.addPhoto}>
-                            <img src={add} alt='add file' width='25'/>
-                            Add new photo
-                        </div>
+                    <div className={s.addPhoto}>
+                        <img src={add} alt='add file' width='25'/>
+                        Add new photo
+                    </div>
                 </label>
-            </div>
-            }
+            </div>}
         </div>
         <div className={s.mainInfo}>
                 <span className={s.fullName}>

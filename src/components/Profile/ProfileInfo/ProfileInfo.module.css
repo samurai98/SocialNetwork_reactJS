@@ -1,7 +1,8 @@
 .profileInfo {
-    grid-column: 1 / 3;
     display: grid;
-    grid-template: 1fr / 0.3fr 0.7fr;
+
+    grid-column: 1 / 3;
+    grid-template: 1fr / .3fr .7fr;
 }
 
 .mainInfo {
@@ -17,8 +18,9 @@
 }
 
 .mainPhoto {
-    width: 200px;
     display: block;
+
+    width: 200px;
 }
 
 .newPhoto {
@@ -27,23 +29,26 @@
 }
 
 .newPhoto input {
-    opacity: 0;
-    visibility: hidden;
     position: absolute;
+    visibility: hidden;
+
+    opacity: 0;
 }
 
 .addPhoto {
-    width: 100%;
-    margin-right: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 100%;
+    margin-right: 15px;
     color: white;
 }
 
 .addPhoto:hover {
-    background-color: rgba(103, 162, 232, 0.56);
     cursor: pointer;
+
+    background-color: rgba(103, 162, 232, .56);
 }
 
 .addPhoto img {
@@ -52,9 +57,9 @@
 
 .fullName {
     font-size: 25px;
-    line-height: 45px;
     font-weight: 500;
-    border-bottom: 1px solid rgba(100, 100, 100, 0.7);
+    line-height: 45px;
+    border-bottom: 1px solid rgba(100, 100, 100, .7);
 }
 
 .status {
@@ -63,12 +68,12 @@
 }
 
 .status span {
-    justify-items: center;
-    padding: 5px;
-    margin-top: 20px;
-
-    overflow:hidden;
+    overflow: hidden;
     max-width: 500px;
+    margin-top: 20px;
+    padding: 5px;
+
+    justify-items: center;
 }
 
 .status span:hover {
@@ -81,31 +86,34 @@
 }
 
 .editButton {
+    font-size: 14px;
+    display: block;
+
     width: 75px;
     height: 25px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #ffffff;
-    background-color: #5181b8;
-    border: 0;
-    display: block;
-    outline: none;
     margin: 10px;
+    cursor: pointer;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    background-color: #5181b8;
 }
 
 .editButton:hover {
-    background-color: rgba(103, 162, 232, 0.56);
+    background-color: rgba(103, 162, 232, .56);
 }
 
-.contact, .contact a {
+.contact,
+.contact a {
     padding-left: 10px;
 }
 
 .contact a {
-    color: #2a5885;
     font-weight: bold;
     text-decoration: none;
+
+    color: #2a5885;
 }
 
 .contact a:hover {

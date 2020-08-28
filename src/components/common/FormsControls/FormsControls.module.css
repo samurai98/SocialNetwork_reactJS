@@ -1,12 +1,12 @@
 .input {
-    margin-bottom: 15px;
-    width: 260px;
-    height: 30px;
-    padding: 6px 12px 8px;
-    border-radius: 5px;
-    border: 1px solid #d3d9de;
     font-size: 14px;
     box-sizing: border-box;
+    width: 260px;
+    height: 30px;
+    margin-bottom: 15px;
+    padding: 6px 12px 8px;
+    border: 1px solid #d3d9de;
+    border-radius: 5px;
 }
 
 .formControl.error input,
@@ -19,8 +19,8 @@
 }
 
 .formSummaryError {
-    padding: 5px 18px;
     margin: 20px 0 30px 0;
+    padding: 5px 18px;
     border-radius: 4px;
     background-color: #ffd6cc;
 }

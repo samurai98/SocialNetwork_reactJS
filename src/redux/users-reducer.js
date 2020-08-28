@@ -1,15 +1,15 @@
-import {usersAPI} from "../api/api";
-import {updateObjectInArray} from "../utils/object.helpers";
-import {getFriends} from "./sidebar-reducer";
+import {usersAPI} from '../api/api';
+import {updateObjectInArray} from '../utils/object.helpers';
+import {getFriends} from './sidebar-reducer';
 
-const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET_USERS';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_PORTION_NUMBER = 'SET_PORTION_NUMBER';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
+const FOLLOW = 'samurai-network/users/FOLLOW';
+const UNFOLLOW = 'samurai-network/users/UNFOLLOW';
+const SET_USERS = 'samurai-network/users/SET_USERS';
+const SET_CURRENT_PAGE = 'samurai-network/users/SET_CURRENT_PAGE';
+const SET_PORTION_NUMBER = 'samurai-network/users/SET_PORTION_NUMBER';
+const SET_TOTAL_USERS_COUNT = 'samurai-network/users/SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_FETCHING = 'samurai-network/users/TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'samurai-network/users/TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
     users: [],

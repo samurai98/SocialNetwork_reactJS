@@ -1,24 +1,25 @@
 .login {
     display: grid;
-    grid-template: 0.2fr 0.8fr / 1fr;
     align-items: center;
+    grid-template: .2fr .8fr / 1fr;
     justify-items: center;
 }
 
 .button {
+    font-size: 14px;
+    display: block;
+
     width: 105px;
     height: 35px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #ffffff;
-    background-color: #5181b8;
-    border: 0;
-    display: block;
-    outline: none;
     margin: 10px auto;
+    cursor: pointer;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    background-color: #5181b8;
 }
 
 .button:hover {
-    background-color: rgba(103, 162, 232, 0.56);
+    background-color: rgba(103, 162, 232, .56);
 }

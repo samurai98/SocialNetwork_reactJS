@@ -1,11 +1,11 @@
-import {profileAPI, usersAPI} from "../api/api";
-import {stopSubmit} from "redux-form";
+import {profileAPI, usersAPI} from '../api/api';
+import {stopSubmit} from 'redux-form';
 
-const ADD_POST = 'ADD-POST';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_STATUS = 'SET_STATUS';
-const DELETE_POST = 'DELETE_POST';
-const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
+const ADD_POST = 'samurai-network/profile/ADD-POST';
+const SET_USER_PROFILE = 'samurai-network/profile/SET_USER_PROFILE';
+const SET_STATUS = 'samurai-network/profile/SET_STATUS';
+const DELETE_POST = 'samurai-network/profile/DELETE_POST';
+const SAVE_PHOTO_SUCCESS = 'samurai-network/profile/SAVE_PHOTO_SUCCESS';
 
 let initialState = {
     posts: [

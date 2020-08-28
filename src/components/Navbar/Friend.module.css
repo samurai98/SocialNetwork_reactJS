@@ -1,8 +1,8 @@
 .content {
     display: grid;
+    margin-bottom: 10px;
     grid-template-columns: 35px 90px;
     grid-template-rows: 1fr 1fr;
-    margin-bottom: 10px;
     place-items: center center;
 }
 
@@ -11,9 +11,9 @@
 }
 
 .ava img {
-    margin-right: 5px;
     width: 30px;
     height: 30px;
+    margin-right: 5px;
     border-radius: 50%;
 }
 
@@ -22,10 +22,11 @@
 }
 
 .name a {
-    white-space: nowrap;
-    color: #2a5885;
     font-size: 15px;
+
+    white-space: nowrap;
     text-decoration: none;
+    color: #2a5885;
 }
 
 .name:hover {

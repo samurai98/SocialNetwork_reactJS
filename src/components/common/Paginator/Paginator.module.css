@@ -1,21 +1,22 @@
 .paginator {
     display: grid;
+    margin: 10px;
     grid-template-columns: 100px 1fr 100px;
     grid-template-rows: 1fr;
     place-items: center center;
-    margin: 10px;
 }
 
 .paginator button {
+    font-size: 16px;
+
     width: 35px;
     height: 30px;
-    font-size: 16px;
-    color: #fff7ed;
-    background-color: #5181b8;
-    border: none;
-    outline: none;
-    border-radius: 5px;
     cursor: pointer;
+    color: #fff7ed;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #5181b8;
 }
 
 .paginator button:hover {
@@ -28,8 +29,9 @@
 }
 
 .allPages {
-    grid-column: 2 / 3;
     cursor: pointer;
+
+    grid-column: 2 / 3;
 }
 
 .rightButton {

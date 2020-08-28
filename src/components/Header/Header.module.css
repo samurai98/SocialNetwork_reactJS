@@ -1,14 +1,16 @@
 .header {
-    grid-area: header;
-    background-color: #4a76a8;
     display: grid;
     align-items: center;
+    background-color: #4a76a8;
+
+    grid-area: header;
     grid-template: 1fr / 1fr minmax(auto, 165px) minmax(auto, 795px) 1fr;
 }
 
 .logo {
-    grid-column: 2 / 3;
     height: 42px;
+
+    grid-column: 2 / 3;
 }
 
 .logo img {
@@ -27,20 +29,22 @@
 
 .userInfo {
     display: grid;
-    grid-template:  1fr / 1fr 35px 80px;
     align-items: center;
+    grid-template: 1fr / 1fr 35px 80px;
     justify-items: flex-end;
 }
 
 .userInfo span {
+    font-weight: bold;
+
     padding-right: 10px;
     color: white;
-    font-weight: bold;
 }
 
 .userInfo a {
-    text-decoration: none;
     display: inline;
+
+    text-decoration: none;
 }
 
 .userInfo img {
@@ -50,12 +54,12 @@
 
 .userInfo button {
     width: 55px;
-    border-radius: 5px;
     cursor: pointer;
     color: #f0f2f5;
     border: 1px solid #d3d9de;
-    background-color: #5181b8;
+    border-radius: 5px;
     outline: none;
+    background-color: #5181b8;
 }
 
 .userInfo button:hover {

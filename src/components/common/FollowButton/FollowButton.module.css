@@ -1,21 +1,22 @@
 .follow button {
+    font-size: 14px;
+
     width: 70px;
     height: 20px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #ffffff;
-    background-color: #5181b8;
-    border: 0;
-    outline: none;
     margin-top: 5px;
+    cursor: pointer;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    background-color: #5181b8;
 }
 
 .follow button:hover {
-    background-color: rgba(103, 162, 232, 0.56);
+    background-color: rgba(103, 162, 232, .56);
 }
 
 .follow button:disabled {
     cursor: progress;
-    background-color: rgba(103, 162, 232, 0.56);
+    background-color: rgba(103, 162, 232, .56);
 }

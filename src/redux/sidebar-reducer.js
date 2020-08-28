@@ -1,6 +1,6 @@
 import {usersAPI} from "../api/api";
 
-const SET_FRIENDS = 'SET_FRIENDS';
+const SET_FRIENDS = 'samurai-network/sidebar/SET_FRIENDS';
 
 const initialState = {
     friends: []

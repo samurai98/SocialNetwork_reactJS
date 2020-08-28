@@ -4,9 +4,9 @@
 
 .user {
     display: grid;
-    grid-template: 105px / minmax(90px, auto) 1fr;
     align-items: center;
-    border-bottom: 1px solid rgba(100, 100, 100, 0.7);
+    border-bottom: 1px solid rgba(100, 100, 100, .7);
+    grid-template: 105px / minmax(90px, auto) 1fr;
 }
 
 .userPhoto {
@@ -21,9 +21,9 @@
 
 .userName a {
     font-size: 18px;
-    color: #2a5885;
     font-weight: bold;
     text-decoration: none;
+    color: #2a5885;
 }
 
 .userName a:hover {
@@ -31,13 +31,13 @@
 }
 
 .status {
-    overflow:hidden;
+    overflow: hidden;
     max-width: 500px;
     max-height: 50px;
 }
 
 .noStatus {
-    color: rgba(191, 143, 96, 0.67);
+    color: rgba(191, 143, 96, .67);
 }
 
 

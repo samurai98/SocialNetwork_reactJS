@@ -23,7 +23,6 @@ let User = ({user, followingInProgress, unfollow, follow, isAuth}) => {
                 <div className={styles.status}>
                     {user.status || <span className={styles.noStatus}>no status</span>}
                 </div>
-
                 <FollowButton user={user}
                               followingInProgress={followingInProgress}
                               follow={follow}
