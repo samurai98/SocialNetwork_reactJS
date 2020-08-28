@@ -1,15 +1,33 @@
 .content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 35px 90px;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 10px;
+    place-items: center center;
 }
 
 .ava {
-    margin: 5px;
+    grid-row: 1 / 3;
+}
+
+.ava img {
+    margin-right: 5px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: darkgoldenrod;
 }
 
 .name {
-    font-size: medium;
+    justify-self: flex-start;
+}
+
+.name a {
+    white-space: nowrap;
+    color: #2a5885;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.name:hover {
+    text-decoration: underline;
 }

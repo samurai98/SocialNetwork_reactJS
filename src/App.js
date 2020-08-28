@@ -13,6 +13,7 @@ import {compose} from "redux";
 import Preloader from "./components/common/Preloader/Preloader";
 import {initializedApp} from "./redux/app-reducer";
 import store from "./redux/redux-store";
+import {getFriends} from "./redux/sidebar-reducer";
 
 const DialogsContainer = React.lazy(() => import ("./components/Dialogs/DialogsContainer"));
 const UsersContainer = React.lazy(() => import ("./components/Users/UsersContainer"));
@@ -33,7 +34,7 @@ class App extends React.Component {
                 <HeaderContainer/>
 
                 <div className={"app-wrapper-main"}>
-                    <Navbar state={this.props.state.sidebar}/>
+                    <Navbar state={this.props.state.sidebar} getFriends={this.props.getFriends}/>
                     <div className={"app-wrapper-content"}>
                         <React.Suspense fallback={<Preloader/>}>
                             <Switch>
@@ -69,7 +70,7 @@ const mapStateToProps = (state) => ({
 
 const AppContainer = compose(
     withRouter,
-    connect(mapStateToProps, {initializedApp}))(App);
+    connect(mapStateToProps, {initializedApp, getFriends}))(App);
 
 const SamuraiJSApp = () => {
     return <HashRouter>

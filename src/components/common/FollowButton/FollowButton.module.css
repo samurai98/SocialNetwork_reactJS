@@ -1,0 +1,21 @@
+.follow button {
+    width: 70px;
+    height: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #5181b8;
+    border: 0;
+    outline: none;
+    margin-top: 5px;
+}
+
+.follow button:hover {
+    background-color: rgba(103, 162, 232, 0.56);
+}
+
+.follow button:disabled {
+    cursor: progress;
+    background-color: rgba(103, 162, 232, 0.56);
+}

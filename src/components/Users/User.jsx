@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import {NavLink} from "react-router-dom";
+import FollowButton from "../common/FollowButton/FollowButton";
 
 let User = ({user, followingInProgress, unfollow, follow, isAuth}) => {
     return (
@@ -9,7 +10,7 @@ let User = ({user, followingInProgress, unfollow, follow, isAuth}) => {
             <div>
                 <NavLink to={'/profile/' + user.id}>
                     <img src={user.photos.small !== null
-                        ? user.photos.small : userPhoto} alt="ava"
+                        ? user.photos.small : userPhoto} alt='ava'
                          className={styles.userPhoto}/>
                 </NavLink>
             </div>
@@ -22,22 +23,12 @@ let User = ({user, followingInProgress, unfollow, follow, isAuth}) => {
                 <div className={styles.status}>
                     {user.status || <span className={styles.noStatus}>no status</span>}
                 </div>
-                <div className={styles.follow}>
-                    {!isAuth
-                        ? <br/>
-                        : user.followed
-                        ? <button disabled={followingInProgress
-                            .some(id => id === user.id)}
-                                  onClick={() => {
-                                      unfollow(user.id)
-                                  }}>Unfollow</button>
-                        : <button disabled={followingInProgress
-                            .some(id => id === user.id)}
-                                  onClick={() => {
-                                      follow(user.id)
-                                  }}>Follow</button>}
 
-                </div>
+                <FollowButton user={user}
+                              followingInProgress={followingInProgress}
+                              follow={follow}
+                              unfollow={unfollow}
+                              isAuth={isAuth} />
             </div>
         </div>
     )

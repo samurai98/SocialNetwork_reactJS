@@ -1,15 +1,12 @@
 import {usersAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/object.helpers";
+import {getFriends} from "./sidebar-reducer";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-
-
 const SET_PORTION_NUMBER = 'SET_PORTION_NUMBER';
-
-
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
@@ -70,11 +67,7 @@ export const followSuccess = (userId) => ({type: FOLLOW, userId});
 export const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId});
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-
-
 export const setPortionNumber = (portionNumber) => ({type: SET_PORTION_NUMBER, portionNumber});
-
-
 export const setUsersTotalCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleFollowingProgress = (isFetching, userId) => ({
@@ -83,12 +76,13 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
     userId
 });
 
+
 export const getUsers = (page, pageSize) => {
     return async (dispatch) => {
         dispatch(toggleIsFetching(true));
 
         let dataForPageNumber = await usersAPI.getUsers(page, 1);
-        let pageNumber = Math.ceil(dataForPageNumber.totalCount/pageSize) - page + 1;
+        let pageNumber = Math.ceil(dataForPageNumber.totalCount / pageSize) - page + 1;
         let data = await usersAPI.getUsers(pageNumber, pageSize);
 
         dispatch(toggleIsFetching(false));
@@ -97,7 +91,6 @@ export const getUsers = (page, pageSize) => {
         dispatch(setUsersTotalCount(data.totalCount));
     }
 };
-
 const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
     dispatch(toggleFollowingProgress(true, userId));
     let data = await apiMethod(userId);
@@ -107,17 +100,18 @@ const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) =>
     }
     dispatch(toggleFollowingProgress(false, userId));
 };
-
 export const follow = (userId) => {
     return async (dispatch) => {
         followUnfollowFlow(dispatch, userId, usersAPI.followUser.bind(usersAPI), followSuccess);
+        dispatch(getFriends());
     }
 };
-
 export const unfollow = (userId) => {
     return async (dispatch) => {
         followUnfollowFlow(dispatch, userId, usersAPI.unfollowUser.bind(usersAPI), unfollowSuccess);
+        dispatch(getFriends());
     }
 };
+
 
 export default usersReducer;

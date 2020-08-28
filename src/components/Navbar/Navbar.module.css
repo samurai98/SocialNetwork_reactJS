@@ -29,6 +29,16 @@
 }
 
 .friends {
+    display: grid;
+    grid-template-columns: 125px;
     margin-top: 20px;
+}
+
+.friends span {
     font-size: 30px;
+}
+
+.noFriends {
+    color: rgba(191, 143, 96, 0.67);
+    font-size: 18px;
 }
