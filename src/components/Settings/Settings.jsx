@@ -8,7 +8,7 @@ const Settings = () => {
             <img className={s.development} src={development} alt='The page in development'/>
         </div>
     );
-}
+};
 
 
 export default Settings;

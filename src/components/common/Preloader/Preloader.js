@@ -1,9 +1,9 @@
-import React from "react";
-import preloader from "../../../assets/images/preloader.gif";
+import React from 'react';
+import preloader from '../../../assets/images/preloader.gif';
 
 let Preloader = () => {
     return <div>
-        <img src={preloader} alt="loading" style={{ height: '100px' }}/>
+        <img src={preloader} alt='loading' style={{height: '100px'}}/>
     </div>
 };
 

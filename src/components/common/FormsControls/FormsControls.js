@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import styles from './FormsControls.module.css';
-import {Field} from "redux-form";
+import {Field} from 'redux-form';
 
 export const Textarea = ({input, meta, ...props}) => {
     const hasError = meta.touched && meta.error;
@@ -19,7 +19,7 @@ export const Input = ({input, meta, ...props}) => {
     return (
         <div className={`${styles.formControl} ${hasError ? styles.error : ''}`}>
             <label>
-                <input className={props.type === 'checkbox' || styles.input} {...input} {...props}/>
+                <input className={props.type === 'checkbox' ? '' : styles.input} {...input} {...props}/>
                 <span>{props.text}</span>
             </label>
         </div>

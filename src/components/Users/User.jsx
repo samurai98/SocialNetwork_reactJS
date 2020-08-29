@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "./users.module.css";
-import userPhoto from "../../assets/images/user.png";
-import {NavLink} from "react-router-dom";
-import FollowButton from "../common/FollowButton/FollowButton";
+import React from 'react';
+import styles from './users.module.css';
+import userPhoto from '../../assets/images/user.png';
+import {NavLink} from 'react-router-dom';
+import FollowButton from '../common/FollowButton/FollowButton';
 
 let User = ({user, followingInProgress, unfollow, follow, isAuth}) => {
     return (
@@ -27,7 +27,7 @@ let User = ({user, followingInProgress, unfollow, follow, isAuth}) => {
                               followingInProgress={followingInProgress}
                               follow={follow}
                               unfollow={unfollow}
-                              isAuth={isAuth} />
+                              isAuth={isAuth}/>
             </div>
         </div>
     )

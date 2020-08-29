@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import s from './ProfileInfo.module.css';
-import Preloader from "../../common/Preloader/Preloader";
-import ProfileStatus from "./ProfileStatus";
+import Preloader from '../../common/Preloader/Preloader';
+import ProfileStatus from './ProfileStatus';
 import userPhoto from '../../../assets/images/user.png';
 import add from '../../../assets/images/icons/add.svg';
-import ProfileDataForm from "./ProfileDataForm";
+import ProfileDataForm from './ProfileDataForm';
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
 
@@ -75,7 +75,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
         <div>
             <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
             if (profile.contacts[key])
-                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>;
         })}
         </div>
         {isOwner && <div>

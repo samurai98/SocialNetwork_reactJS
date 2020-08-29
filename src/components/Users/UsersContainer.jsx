@@ -3,17 +3,17 @@ import {connect} from 'react-redux';
 import {
     follow, getUsers, setCurrentPage,
     toggleFollowingProgress, unfollow, setPortionNumber
-} from "../../redux/users-reducer";
-import Users from "./Users";
-import Preloader from "../common/Preloader/Preloader";
-import {compose} from "redux";
+} from '../../redux/users-reducer';
+import Users from './Users';
+import Preloader from '../common/Preloader/Preloader';
+import {compose} from 'redux';
 import {
     getCurrentPage,
     getFollowingInProgress,
     getIsFetching,
     getPageSize, getPortionNumber,
     getTotalUsersCount, getUsersSelector
-} from "../../redux/users-selectors";
+} from '../../redux/users-selectors';
 
 class UsersContainer extends React.Component {
 

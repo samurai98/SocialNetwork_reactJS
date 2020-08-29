@@ -1,11 +1,10 @@
-import {usersAPI} from "../api/api";
+import {usersAPI} from '../api/api';
 
 const SET_FRIENDS = 'samurai-network/sidebar/SET_FRIENDS';
 
 const initialState = {
     friends: []
 };
-
 
 const sidebarReducer = (state = initialState, action) => {
     switch (action.type) {

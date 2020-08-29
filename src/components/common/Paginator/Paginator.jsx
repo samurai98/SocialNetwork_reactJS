@@ -22,12 +22,9 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, portionNumber, setPort
             {pages
                 .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                 .map(p => {
-                    return <span
-                        className={cn({[styles.selectPage]: currentPage === p}, styles.pageNumber)}
-                        onClick={() => {
-                            onPageChanged(p)
-                        }}
-                    >{p}</span>
+                    return <span key={p}
+                                 className={cn({[styles.selectPage]: currentPage === p}, styles.pageNumber)}
+                                 onClick={() => onPageChanged(p)}>{p}</span>
                 })}
         </div>
         {portionCount > portionNumber &&

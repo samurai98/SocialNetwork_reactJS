@@ -1,10 +1,10 @@
 import React from 'react';
 import s from './MyPosts.module.css';
-import Post from "./Post/Post";
-import PropTypes from "prop-types";
-import {Field, reduxForm} from "redux-form";
-import {maxLengthCreator, required} from "../../../utils/validators/validator";
-import {Textarea} from "../../common/FormsControls/FormsControls";
+import Post from './Post/Post';
+import PropTypes from 'prop-types';
+import {Field, reduxForm} from 'redux-form';
+import {maxLengthCreator, required} from '../../../utils/validators/validator';
+import {Textarea} from '../../common/FormsControls/FormsControls';
 
 const maxLength10 = maxLengthCreator(10);
 

@@ -1,7 +1,7 @@
-import React from "react";
-import Paginator from "../common/Paginator/Paginator";
-import User from "./User";
-import styles from "./users.module.css";
+import React from 'react';
+import Paginator from '../common/Paginator/Paginator';
+import User from './User';
+import styles from './users.module.css';
 
 let Users = ({currentPage, portionNumber, setPortionNumber, totalUsersCount, onPageChanged, pageSize, users, ...props}) => {
     return <div>

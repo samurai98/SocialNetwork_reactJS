@@ -1,22 +1,22 @@
 import React from 'react';
 import './App.css';
-import Navbar from "./components/Navbar/Navbar";
-import {HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginPage from "./components/Login/Login";
-import {connect, Provider} from "react-redux";
-import {compose} from "redux";
-import Preloader from "./components/common/Preloader/Preloader";
-import {initializedApp} from "./redux/app-reducer";
-import store from "./redux/redux-store";
-import {getFriends} from "./redux/sidebar-reducer";
+import Navbar from './components/Navbar/Navbar';
+import {HashRouter, Redirect, Route, Switch, withRouter} from 'react-router-dom';
+import News from './components/News/News';
+import Music from './components/Music/Music';
+import Settings from './components/Settings/Settings';
+import ProfileContainer from './components/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
+import LoginPage from './components/Login/Login';
+import {connect, Provider} from 'react-redux';
+import {compose} from 'redux';
+import Preloader from './components/common/Preloader/Preloader';
+import {initializedApp} from './redux/app-reducer';
+import store from './redux/redux-store';
+import {getFriends} from './redux/sidebar-reducer';
 
-const DialogsContainer = React.lazy(() => import ("./components/Dialogs/DialogsContainer"));
-const UsersContainer = React.lazy(() => import ("./components/Users/UsersContainer"));
+const DialogsContainer = React.lazy(() => import ('./components/Dialogs/DialogsContainer'));
+const UsersContainer = React.lazy(() => import ('./components/Users/UsersContainer'));
 
 class App extends React.Component {
 
@@ -33,9 +33,9 @@ class App extends React.Component {
             <div className='app-wrapper'>
                 <HeaderContainer/>
 
-                <div className={"app-wrapper-main"}>
+                <div className={'app-wrapper-main'}>
                     <Navbar state={this.props.state.sidebar} getFriends={this.props.getFriends}/>
-                    <div className={"app-wrapper-content"}>
+                    <div className={'app-wrapper-content'}>
                         <React.Suspense fallback={<Preloader/>}>
                             <Switch>
                                 <Route exact path='/'

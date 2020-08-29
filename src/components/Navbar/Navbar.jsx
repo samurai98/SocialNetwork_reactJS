@@ -23,7 +23,8 @@ const Navbar = React.memo((props) => {
     }, [props.state.friends.length]);
 
     const allFriends = props.state.friends.length
-        ? props.state.friends.map(el => <Friend friend={el}
+        ? props.state.friends.map(el => <Friend key={el.id}
+                                                friend={el}
                                                 isAuth={isAuth}
                                                 follow={(userId) => dispatch(follow(userId))}
                                                 unfollow={(userId) => dispatch(unfollow(userId))}
@@ -32,22 +33,22 @@ const Navbar = React.memo((props) => {
 
     return <nav className={s.nav}>
         <div className={s.item}>
-            <NavLink to="/profile" activeClassName={s.activeLink}><img src={home} alt="home"/>Profile</NavLink>
+            <NavLink to='/profile' activeClassName={s.activeLink}><img src={home} alt='home'/>Profile</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to="/users" activeClassName={s.activeLink}><img src={users} alt="users"/>Users</NavLink>
+            <NavLink to='/users' activeClassName={s.activeLink}><img src={users} alt='users'/>Users</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to="/dialogs" activeClassName={s.activeLink}><img src={dialogs} alt="dialogs"/>Messages</NavLink>
+            <NavLink to='/dialogs' activeClassName={s.activeLink}><img src={dialogs} alt='dialogs'/>Messages</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to="/news" activeClassName={s.activeLink}><img src={news} alt="news"/>News</NavLink>
+            <NavLink to='/news' activeClassName={s.activeLink}><img src={news} alt='news'/>News</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to="/music" activeClassName={s.activeLink}><img src={music} alt="music"/>Music</NavLink>
+            <NavLink to='/music' activeClassName={s.activeLink}><img src={music} alt='music'/>Music</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to="/settings" activeClassName={s.activeLink}><img src={set} alt="set"/>Settings</NavLink>
+            <NavLink to='/settings' activeClassName={s.activeLink}><img src={set} alt='set'/>Settings</NavLink>
         </div>
         {isAuth ?
             <div className={s.friends}>

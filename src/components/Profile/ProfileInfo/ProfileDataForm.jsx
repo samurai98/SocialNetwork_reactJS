@@ -1,6 +1,6 @@
 import React from 'react';
-import {createField, Input, Textarea} from "../../common/FormsControls/FormsControls";
-import {reduxForm} from "redux-form";
+import {createField, Input, Textarea} from '../../common/FormsControls/FormsControls';
+import {reduxForm} from 'redux-form';
 import s from './ProfileInfo.module.css';
 import style from '../../common/FormsControls/FormsControls.module.css';
 
