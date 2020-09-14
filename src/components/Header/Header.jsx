@@ -23,7 +23,9 @@ const Header = (props) => {
                     <NavLink to='/profile'>
                         <img src={props.photo} alt='ava'/>
                     </NavLink>
-                    <button onClick={props.logout}>Logout</button>
+                    <button onClick={props.logout}>
+                        Logout
+                    </button>
                 </div>
                 : <NavLink to={'/login'}>Login</NavLink>}
         </div>

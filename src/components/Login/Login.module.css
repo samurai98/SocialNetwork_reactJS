@@ -1,18 +1,35 @@
 .login {
     display: grid;
     align-items: center;
+
     grid-template: .2fr .8fr / 1fr;
     justify-items: center;
 }
 
+.info {
+    line-height: 5px;
+
+    width: 300px;
+    margin: 15px;
+
+    text-align: center;
+
+    border-radius: 5px;
+    background-color: #ebecf0;
+    box-shadow: 1px 3px 3px rgba(9, 30, 66, .25);
+}
+
 .button {
     font-size: 14px;
+
     display: block;
 
     width: 105px;
     height: 35px;
     margin: 10px auto;
+
     cursor: pointer;
+
     color: #fff;
     border: 0;
     border-radius: 5px;
